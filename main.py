@@ -25,10 +25,14 @@ if __name__ == '__main__':
         elif choice=='2':
             print("Opcao 2 foi escolhida")
             clientesOrdenadosHorarioTermino = sorted(cadastroAgenda.items(), key = lambda i: i[1]['hTerminoInt'])            
-            interval_sheduling.main(clientesOrdenadosHorarioTermino)
+            confirmados = interval_sheduling.main(clientesOrdenadosHorarioTermino)
         elif choice=='3':
             print("Opcao 3 foi escolhida")
-            envia_email.main('pagreed0@gmail.com','jpcirqueira81@gmail.com','esse aqui é um email teste')
+            myemail = input("Digite seu email: ")
+            for email in confirmados:
+                #'pagreed0@gmail.com'
+                envia_email.main('teste',myemail,email)
+            print("E-mail enviado com sucesso")
         elif choice=='4':
             print("Opcao 4 foi escolhida")
             print('Saindo....')
