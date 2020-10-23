@@ -3,7 +3,7 @@ import re
 def main(cadastroAgenda):
         aux = []
         while aux == []:
-            hInicioInt = input('Digite o horário inicial da visita(XX:XX): ')
+            hInicioInt = input('Digite o horário inicial da visita: Exemplo -> 10:30 : ')
             aux = re.findall("^(?:[0-1][0-9]|[2][0-3]):[0-5][0-9]$", hInicioInt)
             if aux == []:
                 print('Digite um horário válido')
@@ -14,8 +14,13 @@ def main(cadastroAgenda):
         hInicioString = listaHorarioInicio[0]
 
         cliente = input('Digite o nome do cliente: ')
-        email = input('Digite o email do cliente: ')
-        wpp = input('Digite seu número de whatsapp Ex: 61992847289: ')
+        i = []
+        while i == []:
+            email = input('Digite o email do cliente: ')
+            i = re.findall("^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$", email)
+            if i == []:
+                print('Digite um email valido')
+
         visitaDuracao = int(input('Digite a duração da visita em minutos: '))
 
         
@@ -41,5 +46,4 @@ def main(cadastroAgenda):
         cadastroAgenda[cliente.upper()]['hTerminoInt'] = int(str(hTerminoInt) + aux)
         cadastroAgenda[cliente.upper()]['hTermino'] = hTerminoInt
         cadastroAgenda[cliente.upper()]['email'] = email
-        cadastroAgenda[cliente.upper()]['wpp'] = wpp
         return cadastroAgenda

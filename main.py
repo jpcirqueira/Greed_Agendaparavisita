@@ -1,6 +1,7 @@
 import cadastra_cliente
 import interval_sheduling
 import envia_email
+import re
 
 cadastroAgenda = {}
 
@@ -11,7 +12,7 @@ def print_menu():
     print("3. Envia email aos clientes") 
     print("4. Sair")
     print(67 * "-")
-  
+
 
 if __name__ == '__main__':
     loop=True
@@ -28,7 +29,13 @@ if __name__ == '__main__':
             confirmados = interval_sheduling.main(clientesOrdenadosHorarioTermino)
         elif choice=='3':
             print("Opcao 3 foi escolhida")
-            myemail = input("Digite seu email: ")
+            i = []
+            while i == []:
+                myemail = input("Digite seu email: ")
+                i = re.findall("^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$", myemail)
+                if i == []:
+                    print('Digite um email valido')
+
             envia_email.main(myemail, confirmados)
             print("E-mail enviado com sucesso")
         elif choice=='4':

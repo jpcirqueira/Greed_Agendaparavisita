@@ -1,7 +1,6 @@
 import smtplib
 
 def main(emailfrom, confirmado):
-    print("cristo", confirmado)
     msg = """ sr.{} sua visita foi confirmada para as: {}"""
     for aux in confirmado:
         nome= aux
