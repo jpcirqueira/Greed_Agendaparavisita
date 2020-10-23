@@ -29,9 +29,7 @@ if __name__ == '__main__':
         elif choice=='3':
             print("Opcao 3 foi escolhida")
             myemail = input("Digite seu email: ")
-            for email in confirmados:
-                #'pagreed0@gmail.com'
-                envia_email.main('teste',myemail,email)
+            envia_email.main(myemail, confirmados)
             print("E-mail enviado com sucesso")
         elif choice=='4':
             print("Opcao 4 foi escolhida")
