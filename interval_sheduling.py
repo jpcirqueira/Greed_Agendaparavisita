@@ -4,6 +4,7 @@ def main(clientesOrdenadosHorarioTermino):
     numVisita = 0
     confirmados = []
     # print(clientesOrdenadosHorarioTermino)
+    print(clientesOrdenadosHorarioTermino)
     for cliente in clientesOrdenadosHorarioTermino:
         if(horariovisita <= int(cliente[1]['hInicioInt'])):
             horariovisita = cliente[1]['hTerminoInt']
